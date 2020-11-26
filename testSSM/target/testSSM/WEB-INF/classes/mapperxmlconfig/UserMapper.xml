@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="org.example.mapper.UserMapper">
-    <select id="getUserByUser" resultType="org.example.bean.User">
-    select  id,name from user
-  </select>
+    <insert id="insertUser">
+        insert into t_user(u_name,u_password) values(#{user.name},#{user.password})
+    </insert>
+    <select id="selectUserByUser" resultType="org.example.bean.User">
+        select u_id as id,u_name as name,u_password as password from t_user where u_name=#{user.name} and u_password=#{user.password}
+    </select>
 </mapper>

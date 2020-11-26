@@ -1,36 +1,22 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: DengLong
   Date: 2019/6/18
-  Time: 18:48
+  Time: 18:22
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>留言本-查询留言</title>
+    <title>留言板-用户登录</title>
 </head>
 <body>
-<h1>留言本-查询留言</h1>
+<h1>留言板-用户登录</h1>
 <hr>
-<table border="1" width="80%" align="center">
-    <tr>
-        <th>id</th>
-        <th>姓名</th>
-        <th>密码</th>
-        <th>留言</th>
-        <th>描述</th>
-        <th>创建时间</th>
-        <th>修改时间</th>
-        <th>操作</th>
-    </tr>
-    <c:forEach items="${userLogin}" var="user">
-        <tr>
-            <td>${user.id}</td>
-            <td>${user.name}</td>
-        </tr>
-    </c:forEach>
-</table>
+<form action="/user/doLogin" method="post">
+    <label for="name">姓  名：</label><input type="text" name="name" id="name"> <br>
+    <label for="password">密  码：</label><input type="password" name="password" id="password"> <br>
+    <input type="submit" value="登录"> <input type="reset" value="重置"><a href="/user/register">注册用户</a>
+</form>
 </body>
 </html>

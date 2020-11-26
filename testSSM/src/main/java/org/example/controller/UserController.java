@@ -6,8 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Controller
@@ -17,10 +17,33 @@ public class UserController {
     @Autowired
     UserService userService;
 
-    @RequestMapping("/list")
-    public String getUserByUser(Model model) {
-        List<User> userLogin = userService.getUserByUser();
-        model.addAttribute("userLogin", userLogin);
+    @RequestMapping("/register")
+    public String register() {
+        return "register";
+    }
+
+    @RequestMapping("/doRegister")
+    public String doRegister(User user) {
+        User user1 = userService.selectUserByUser(user);
+        if (user1 == null) {
+            userService.insertUser(user);
+        }
+        return "redirect:/user/login";
+    }
+
+    @RequestMapping("/login")
+    public String login() {
         return "login";
     }
+
+    @RequestMapping("/doLogin")
+    public String doLogin(User user, HttpSession httpSession) {
+        User user1 = userService.selectUserByUser(user);
+        if (user1 != null) {
+            httpSession.setAttribute("userLogin", user1);
+            return "forward:/book/list";
+        } else
+            return "loginFail";
+    }
+
 }
