@@ -34,6 +34,9 @@
         select a.b_id,b.u_id,a.b_isbn,a.b_name,a.b_price,a.b_publisher,a.b_pages,a.b_cover,b.u_name,b.u_password from t_user b inner join t_book a on a.u_id=b.u_id
     </select>
     <select id="getAllBookListPage" resultType="org.example.bean.Book">
-                 select a.b_id,b.u_id,a.b_isbn,a.b_name,a.b_price,a.b_publisher,a.b_pages,a.b_cover,b.u_name,b.u_password from t_user b inner join t_book a on a.u_id=b.u_id limit #{pageBean.beginCount},#{pageBean.count}
+       select a.b_id,b.u_id,a.b_isbn,a.b_name,a.b_price,a.b_publisher,a.b_pages,a.b_cover,b.u_name,b.u_password from t_user b inner join t_book a on a.u_id=b.u_id limit ${param1},${param2}
+    </select>
+    <select id="getAllBookListPageBean" resultType="Book" parameterType="PageBean">
+        select a.b_id,b.u_id,a.b_isbn,a.b_name,a.b_price,a.b_publisher,a.b_pages,a.b_cover,b.u_name,b.u_password from t_user b inner join t_book a on a.u_id=b.u_id  limit ${beginCount} ,${count}
     </select>
 </mapper>

@@ -1,8 +1,12 @@
 package org.example.bean;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class PageBean {
     //总记录数
     private Integer total;
@@ -12,38 +16,17 @@ public class PageBean {
     private Integer nowPage;
     //起始页数
     private Integer beginCount;
+
     private Integer endPage;
 
     public PageBean(Integer count, Integer total, Integer nowPage) {
-        if (nowPage <= 0) {
-            this.nowPage = 1;
-        }
-        this.nowPage = nowPage;
+        this.nowPage = nowPage <= 0 ? nowPage = 1 : nowPage;
         this.count = count;
-        this.beginCount = (nowPage - 1) * count + 1;
+        this.total = total;
         this.endPage = total / count + 1;
-        if (nowPage > endPage) {
-            this.nowPage = endPage;
-        }
+        this.nowPage = nowPage > endPage ? nowPage = endPage : nowPage;
+        this.beginCount = (nowPage - 1) * count + 1;
+
     }
 
-    public Integer getTotal() {
-        return total;
-    }
-
-    public Integer getCount() {
-        return count;
-    }
-
-    public Integer getNowPage() {
-        return nowPage;
-    }
-
-    public Integer getBeginCount() {
-        return beginCount;
-    }
-
-    public Integer getEndPage() {
-        return endPage;
-    }
 }

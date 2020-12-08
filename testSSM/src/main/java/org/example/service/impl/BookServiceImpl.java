@@ -40,7 +40,13 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
-    public List<Book> getAllBookListPage(PageBean pageBean) {
-        return bookMapper.getAllBookListPage(pageBean);
+    public List<Book> getAllBookListPage(Integer a, Integer b) {
+        return bookMapper.getAllBookListPage(a, b);
     }
+
+    @Override
+    public List<Book> getAllBookListPageBean(PageBean pageBean) {
+        return bookMapper.getAllBookListPageBean(pageBean);
+    }
+
 }

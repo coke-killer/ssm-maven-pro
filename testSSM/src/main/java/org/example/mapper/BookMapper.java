@@ -16,5 +16,8 @@ public interface BookMapper {
 
     void updateBookAfter(Book book);
 
-    List<Book> getAllBookListPage(PageBean pageBean);
+    List<Book> getAllBookListPage(Integer a,Integer b);
+
+    List<Book> getAllBookListPageBean(PageBean pageBean);
+
 }

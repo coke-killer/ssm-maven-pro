@@ -7,8 +7,8 @@ import org.example.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
@@ -78,11 +78,13 @@ public class BookController {
         return "forward:/book/list";
     }
 
-    @RequestMapping("/pageBean")
-    public String getPageBean(@RequestParam Integer nowPage, Model model) {
-        PageBean pageBean = new PageBean(10, (bookService.getAllBookList().size()), nowPage);
+    @RequestMapping("/pageBean/{nowPage}")
+    public String getPageBean(@PathVariable Integer nowPage, Model model) {
+        PageBean pageBean = new PageBean(10, 12, nowPage);
+        System.out.println(pageBean);
+//        List<Book> list = bookService.getAllBookListPage(pageBean.getBeginCount(),pageBean.getCount());
+        List<Book> list = bookService.getAllBookListPageBean(pageBean);
         model.addAttribute("pageBean", pageBean);
-        List<Book> list = bookService.getAllBookListPage(pageBean);
         model.addAttribute("list", list);
         return "list";
     }

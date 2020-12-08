@@ -48,10 +48,10 @@
             </c:choose>
         </tr>
     </c:forEach>
-    <a href=/book/pageBean?nowPage=1">『首页』 </a>
-    <a href=/book/pageBean?nowPage=${pageBean.nowPage}+1">『上一页』 </a>
-    <a href=/book/pageBean?nowPage=${pageBean.nowPage}-1">『下一页』 </a>
-    <a href=/book/pageBean?nowPage=${pageBean.endPage}">『末页』 </a>
+    <a href=/book/pageBean/1>『首页』 </a>
+    <a href=/book/pageBean/${pageBean.nowPage-1}>『上一页』 </a>
+    <a href=/book/pageBean/${pageBean.nowPage+1}>『下一页』 </a>
+    <a href=/book/pageBean/${pageBean.endPage}>『末页』 </a>
 </table>
 </body>
 </html>
