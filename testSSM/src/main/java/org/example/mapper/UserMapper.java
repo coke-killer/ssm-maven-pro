@@ -9,6 +9,4 @@ public interface UserMapper {
     User selectUserByUser(User user);
 
     void insertUser(User user);
-
-    List<User> getUserByUser();
 }
