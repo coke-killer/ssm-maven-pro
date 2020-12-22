@@ -31,21 +31,19 @@
             <td>${book.user.name}</td>
             <td>${book.user.password}</td>
             <td>${book.cover}</td>
-            <td><!-- 显示上传的学生头像 -->
-                <img alt="头像" src="/images/${book.cover}">
-            </td>
-                <%--            <td>${book.description}</td>--%>
-                <%--            <td>${book.createTime}</td>--%>
-                <%--            <td>${book.updateTime}</td>--%>
-            <c:choose>
-                <c:when test="${loginUser.id == book.user.id}">
-                    <td><a href="/book/update?id=${book.id}">修改</a>&nbsp;&nbsp;&nbsp; <a
-                            href="/book/delete?id=${book.id}">删除</a></td>
-                </c:when>
-                <c:otherwise>
-                    <td style="color: red; font-size: 8px;">不可操作</td>
-                </c:otherwise>
-            </c:choose>
+                <%--            <td><!-- 显示上传的学生头像 -->--%>
+                <%--                <img alt="头像" src="/images/${book.cover}">--%>
+                <%--            </td>--%>
+                <%--            <c:choose>--%>
+                <%--                <c:when test="${loginUser.id == book.user.id}">--%>
+                <%--                    <td><a href="/book/update?id=${book.id}">修改</a>&nbsp;&nbsp;&nbsp;--%>
+                <%--                        <a--%>
+                <%--                            href="/book/delete?id=${book.id}">删除</a></td>--%>
+                <%--                </c:when>--%>
+                <%--                <c:otherwise>--%>
+                <%--                    <td style="color: red; font-size: 8px;">不可操作</td>--%>
+                <%--                </c:otherwise>--%>
+                <%--            </c:choose>--%>
         </tr>
     </c:forEach>
 </table>
