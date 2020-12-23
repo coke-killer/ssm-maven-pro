@@ -12,21 +12,34 @@
     <script>
         $(function () {
             $("#ccc1").click(function () {
-                alert($("#name").val());
-                alert($("#password").val());
                 $.ajax({
-                    url: "http://localhost:8083/user/doLogin?name=" + $("#name").val() + "&password=" + $("#password").val(),
-                    type: 'post',
-                    success: function (data) {
-                        if (data == "success") {
-                            // alert("登录成功");
-                            window.location.href = "http://localhost:8083/book/list";
-                        } else {
-                            alert("denglushibai");
+                    type: "Post",//请求类型
+                    url: "/user/doLogin",//请求的url
+                    data: {name: $("#name").val(), password: $("#password").val()},//请求参数
+                    dataType: "text",//ajax接口（请求url）返回的数据类型
+                    cache: false,
+                    async: false,
+                    success: function (data) {//data：返回数据（json对象）
+                        alert("xxx");
+                        if (data === "success") {//name为空，错误提示
+                            alert("/book/list");
+                            window.location.href = "/book/list";
+                            $(".errorFont").text("用户名为不能为空3！");
+                            $(".errorFont").css("color", "red");
+                            alert("发送成功！")
+                        } else if (data === "failed") {
+                            alert("登录失败")
+                        } else if (data === "noexist") {
+                            $(".errorFont").text("用户名未注册3");
+                            $(".errorFont").css("color", "red");
                         }
+                    },
+                    error: function (data) {
+                        $(".errorFont").text("发生未知错误，请联系管理员3！");
+                        $(".errorFont").css("color", "red");
                     }
                 });
-            })
+            });
         })
     </script>
 </head>
@@ -74,7 +87,7 @@
                             </div>
 
                             <div class="form-group m-0">
-                                <button type="submit" class="btn btn-primary btn-block" id="ccc1">
+                                <button type="button" class="btn btn-primary btn-block" id="ccc1">
                                     Login
                                 </button>
                             </div>
@@ -92,18 +105,6 @@
         </div>
     </div>
 </section>
-
-
-<%--<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"--%>
-<%--        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"--%>
-<%--        crossorigin="anonymous"></script>--%>
-<%--<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"--%>
-<%--        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"--%>
-<%--        crossorigin="anonymous"></script>--%>
-<%--<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"--%>
-<%--        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"--%>
-<%--        crossorigin="anonymous"></script>--%>
-
 </body>
 </html>
 

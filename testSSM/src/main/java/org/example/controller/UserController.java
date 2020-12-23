@@ -1,5 +1,6 @@
 package org.example.controller;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.example.bean.User;
 import org.example.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 @RequestMapping("/user")
@@ -36,8 +39,8 @@ public class UserController {
         return "login";
     }
 
-    @RequestMapping(value = "/doLogin", method = RequestMethod.POST)
     @ResponseBody
+    @RequestMapping(value = "/doLogin", method = RequestMethod.POST)
     public String doLogin(User user, HttpSession httpSession) {
         User user1 = userService.selectUserByUser(user);
         if (user1 != null) {
