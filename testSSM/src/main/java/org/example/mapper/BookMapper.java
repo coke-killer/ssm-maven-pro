@@ -20,4 +20,5 @@ public interface BookMapper {
 
     List<Book> getAllBookListPageBean(PageBean pageBean);
 
+    Integer selectTotal();
 }

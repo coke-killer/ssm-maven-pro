@@ -25,7 +25,7 @@ public class BookController {
     public String getAllBookList(Model model) {
         List<Book> bookList = bookService.getAllBookList();
         model.addAttribute("bookList", bookList);
-        return "bookList";
+        return "list";
     }
 
     @SneakyThrows
@@ -80,7 +80,8 @@ public class BookController {
 
     @RequestMapping("/pageBean/{nowPage}")
     public String getPageBean(@PathVariable Integer nowPage, Model model) {
-        PageBean pageBean = new PageBean(10, 12, nowPage);
+        Integer total = bookService.selectTotal();
+        PageBean pageBean = new PageBean(10, total, nowPage);
         System.out.println(pageBean);
 //        List<Book> list = bookService.getAllBookListPage(pageBean.getBeginCount(),pageBean.getCount());
         List<Book> list = bookService.getAllBookListPageBean(pageBean);

@@ -9,36 +9,47 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>分页List</title>
+    <title>书籍管理-书籍展示</title>
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/webjars/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/my-login.css">
+    <script type="text/javascript" src="/webjars/jquery/3.5.1/jquery.js"></script>
+    <script type="text/javascript" src="/webjars/jquery/3.5.1/jquery.min.js"></script>
+    <script src="/webjars/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <script src="../js/my-login.js"></script>
 </head>
 <body>
 <h1>留言本-查询留言</h1>
 <hr>
-<table border="1" width="80%" align="center">
+<table class="table table-bordered table-sm" align="center">
+    <thead>
     <tr>
-        <th>id</th>
         <th>姓名</th>
         <th>密码</th>
-        <th>留言</th>
-        <th>描述</th>
-        <th>创建时间</th>
-        <th>修改时间</th>
+        <th>isbn号码</th>
+        <th>书名</th>
+        <th>价格</th>
+        <th>出版社</th>
+        <th>页数</th>
+        <th>封面图片</th>
         <th>操作</th>
     </tr>
+    </thead>
+    <tbody>
     <c:forEach items="${list}" var="book">
         <tr>
-            <td>${book.id}</td>
             <td>${book.user.name}</td>
             <td>${book.user.password}</td>
-            <td>${book.cover}</td>
+            <td>${book.isbn}</td>
+            <td>${book.name}</td>
+            <td>${book.price}</td>
+            <td>${book.publisher}</td>
+            <td>${book.pages}</td>
             <td><!-- 显示上传的学生头像 -->
                 <img alt="头像" src="/images/${book.cover}">
             </td>
-                <%--            <td>${book.description}</td>--%>
-                <%--            <td>${book.createTime}</td>--%>
-                <%--            <td>${book.updateTime}</td>--%>
             <c:choose>
-                <c:when test="${loginUser.id == book.user.id}">
+                <c:when test="${userLogin.id == book.user.id}">
                     <td><a href="/book/update?id=${book.id}">修改</a>&nbsp;&nbsp;&nbsp; <a
                             href="/book/delete?id=${book.id}">删除</a></td>
                 </c:when>
@@ -48,10 +59,16 @@
             </c:choose>
         </tr>
     </c:forEach>
-    <a href=/book/pageBean/1>『首页』 </a>
-    <a href=/book/pageBean/${pageBean.nowPage-1}>『上一页』 </a>
-    <a href=/book/pageBean/${pageBean.nowPage+1}>『下一页』 </a>
-    <a href=/book/pageBean/${pageBean.endPage}>『末页』 </a>
+
+    </tbody>
+</table>
+<table class="table">
+    <tr>
+        <td><a href=/book/pageBean/1>『首页』 </a></td>
+        <td><a href=/book/pageBean/${pageBean.nowPage-1}>『上一页』 </a></td>
+        <td><a href=/book/pageBean/${pageBean.nowPage+1}>『下一页』 </a></td>
+        <td><a href=/book/pageBean/${pageBean.endPage}>『末页』 </a></td>
+    </tr>
 </table>
 </body>
 </html>

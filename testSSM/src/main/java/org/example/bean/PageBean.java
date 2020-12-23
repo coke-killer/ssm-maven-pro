@@ -25,7 +25,7 @@ public class PageBean {
         this.total = total;
         this.endPage = total / count + 1;
         this.nowPage = nowPage > endPage ? nowPage = endPage : nowPage;
-        this.beginCount = (nowPage - 1) * count + 1;
+        this.beginCount = (nowPage - 1) * count;
 
     }
 

@@ -2,9 +2,12 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="org.example.mapper.UserMapper">
     <insert id="insertUser">
-        insert into t_user(u_name,u_password) values(#{name},#{password})
+        insert into t_user(u_name,u_password,u_email) values(#{name},#{password},#{email})
     </insert>
     <select id="selectUserByUser" resultType="org.example.bean.User">
         select u_id as id,u_name as name,u_password as password from t_user where u_name=#{name} and u_password=#{password}
+    </select>
+    <select id="selectUserByName" resultType="org.example.bean.User">
+        select u_id as id,u_password as password ,u_name as name from t_user where u_name=#{name}
     </select>
 </mapper>

@@ -9,4 +9,5 @@ public interface UserService {
 
     void insertUser(User user);
 
+    User selectUserByName(User user);
 }

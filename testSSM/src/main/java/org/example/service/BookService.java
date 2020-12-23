@@ -20,4 +20,7 @@ public interface BookService {
 
 
     List<Book> getAllBookListPageBean(PageBean pageBean);
+
+    Integer selectTotal();
+
 }

@@ -6,6 +6,43 @@
     <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="/webjars/bootstrap/4.5.0/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="/css/my-login.css">
+    <script type="text/javascript" src="/webjars/jquery/3.5.1/jquery.js"></script>
+    <script type="text/javascript" src="/webjars/jquery/3.5.1/jquery.min.js"></script>
+    <script src="/webjars/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <script src="../js/my-login.js"></script>
+    <script>
+        $(function () {
+            $(".my-login-validation").submit(function () {
+                var r;
+                var name = $("#name").val();
+                var password = $("#password").val();
+                var email = $("#password").val();
+                var agree = $("#agree").is(':checked');
+                if (name == '' || password == '' || email == '' || agree == false) {
+                    return false;
+                } else $.ajax({
+                    type: "Post",//请求类型
+                    url: "/user/doRegister",//请求的url
+                    data: {name: $("#name").val(), password: $("#password").val(), email: $("#email").val()},//请求参数
+                    dataType: "text",//ajax接口（请求url）返回的数据类型
+                    cache: false,
+                    async: false,
+                    success: function (data) {//data：返回数据（json对象）
+                        if (data === "success") {//name为空，错误提示
+                            r = true;
+                            alert("注册成功");
+                        } else if (data === "failed") {
+                            alert("用户名已存在");
+                            r = false;
+                        }
+                    },
+                    error: function (data) {
+                    }
+                });
+                return r;
+            });
+        })
+    </script>
 </head>
 <body class="my-login-page">
 <section class="h-100">
@@ -17,13 +54,13 @@
                 </div>
                 <div class="card fat">
                     <div class="card-body">
-                        <h4 class="card-title">重置密码</h4>
-                        <form method="POST" class="my-login-validation" novalidate="" action="/user/doRegister">
+                        <h4 class="card-title">注册账号</h4>
+                        <form method="POST" class="my-login-validation" novalidate="" action="/user/register">
                             <div class="form-group">
                                 <label for="name">账 号：</label>
                                 <input id="name" type="text" class="form-control" name="name" required autofocus>
                                 <div class="invalid-feedback">
-                                    你想起一个什么名字？
+                                    Name is invalid
                                 </div>
                             </div>
 
@@ -40,7 +77,7 @@
                                 <input id="password" type="password" class="form-control" name="password" required
                                        data-eye>
                                 <div class="invalid-feedback">
-                                    密码是必须的
+                                    Password is invalid
                                 </div>
                             </div>
 
@@ -74,10 +111,5 @@
         </div>
     </div>
 </section>
-<script src="/webjars/jquery/3.5.1/jquery.min.js"></script>
-<script src="/webjars/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-<%--	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>--%>
-<%--	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>--%>
-<script src="js/my-login.js"></script>
 </body>
 </html>

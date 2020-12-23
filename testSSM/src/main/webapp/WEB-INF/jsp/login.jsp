@@ -5,13 +5,15 @@
     <title>书籍管理-用户登录</title>
     <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="/webjars/bootstrap/4.5.0/css/bootstrap.min.css">
-    <script type="text/javascript" src="/webjars/jquery/3.5.1/jquery.js"></script>
     <link rel="stylesheet" type="text/css" href="/css/my-login.css">
+    <script type="text/javascript" src="/webjars/jquery/3.5.1/jquery.js"></script>
+    <script type="text/javascript" src="/webjars/jquery/3.5.1/jquery.min.js"></script>
     <script src="/webjars/bootstrap/4.5.0/js/bootstrap.min.js"></script>
     <script src="../js/my-login.js"></script>
     <script>
         $(function () {
-            $("#ccc1").click(function () {
+            $(".my-login-validation").submit(function () {
+                var r;
                 $.ajax({
                     type: "Post",//请求类型
                     url: "/user/doLogin",//请求的url
@@ -20,30 +22,21 @@
                     cache: false,
                     async: false,
                     success: function (data) {//data：返回数据（json对象）
-                        alert("xxx");
                         if (data === "success") {//name为空，错误提示
-                            alert("/book/list");
-                            window.location.href = "/book/list";
-                            $(".errorFont").text("用户名为不能为空3！");
-                            $(".errorFont").css("color", "red");
-                            alert("发送成功！")
+                            r = true;
                         } else if (data === "failed") {
-                            alert("登录失败")
-                        } else if (data === "noexist") {
-                            $(".errorFont").text("用户名未注册3");
-                            $(".errorFont").css("color", "red");
+                            alert("密码错误");
+                            r = false;
                         }
                     },
                     error: function (data) {
-                        $(".errorFont").text("发生未知错误，请联系管理员3！");
-                        $(".errorFont").css("color", "red");
                     }
                 });
+                return r;
             });
-        })
+        });
     </script>
 </head>
-
 <body class="my-login-page">
 <section class="h-100">
     <div class="container h-100">
@@ -55,8 +48,7 @@
                 <div class="card fat">
                     <div class="card-body">
                         <h4 class="card-title">登 录</h4>
-                        <%--                        action="/user/doLogin"--%>
-                        <form method="post" class="my-login-validation" novalidate="">
+                        <form method="post" class="my-login-validation" novalidate="" action="/book//pageBean/1">
                             <div class="form-group">
                                 <label for="name">姓 名：</label>
                                 <input id="name" type="text" class="form-control" name="name" value="" required
@@ -87,11 +79,10 @@
                             </div>
 
                             <div class="form-group m-0">
-                                <button type="button" class="btn btn-primary btn-block" id="ccc1">
+                                <button type="submit" class="btn btn-primary btn-block" id="ccc1">
                                     Login
                                 </button>
                             </div>
-                            <div hidden="hidden" id="xxx"></div>
                             <div class="mt-4 text-center">
                                 你有账号么小兄弟? <a href="/user/register">点我生成一个吧</a>
                             </div>

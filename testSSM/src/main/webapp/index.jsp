@@ -14,8 +14,8 @@
 </head>
 <body>
 <h2>Hello World!</h2>
-<img src="/images/timg.jpg"/>
-<img src="">
-<img src="/WEB-INF/images/timg1.jpg">
+<%--<img src="/images/timg.jpg"/>--%>
+<%--<img src="">--%>
+<%--<img src="/WEB-INF/images/timg1.jpg">--%>
 </body>
 </html>

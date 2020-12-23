@@ -20,8 +20,8 @@
 $(function () {
 
     // author badge :)
-    var author = '<div style="position: fixed;bottom: 0;right: 20px;background-color: #fff;box-shadow: 0 4px 8px rgba(0,0,0,.05);border-radius: 3px 3px 0 0;font-size: 12px;padding: 5px 10px;">By <a href="https://twitter.com/mhdnauvalazhar">@mhdnauvalazhar</a> &nbsp;&bull;&nbsp; <a href="https://www.buymeacoffee.com/mhdnauvalazhar">Buy me a Coffee</a></div>';
-    $("body").append(author);
+    // var author = '<div style="position: fixed;bottom: 0;right: 20px;background-color: #fff;box-shadow: 0 4px 8px rgba(0,0,0,.05);border-radius: 3px 3px 0 0;font-size: 12px;padding: 5px 10px;">By <a href="https://twitter.com/mhdnauvalazhar">@mhdnauvalazhar</a> &nbsp;&bull;&nbsp; <a href="https://www.buymeacoffee.com/mhdnauvalazhar">Buy me a Coffee</a></div>';
+    // $("body").append(author);
 
     $("input[type='password'][data-eye]").each(function (i) {
         var $this = $(this),
@@ -64,6 +64,7 @@ $(function () {
             $("#passeye-" + i).val($(this).val());
         });
         $("#passeye-toggle-" + i).on("click", function () {
+            alert("xxx");
             if ($this.hasClass("show")) {
                 $this.attr('type', 'password');
                 $this.removeClass("show");
@@ -73,22 +74,6 @@ $(function () {
                 $this.val($("#passeye-" + i).val());
                 $this.addClass("show");
                 $(this).addClass("btn-outline-primary");
-            }
-        });
-    });
-    $("#ccc1").click(function () {
-        alert($("#name").val());
-        alert($("#password").val());
-        $.ajax({
-            url: "http://localhost:8083/user/doLogin?name=" + $("#name").val() + "&password=" + $("#password").val(),
-            type: 'post',
-            success: function (data) {
-                if (data == "success") {
-                    // alert("登录成功");
-                    window.location.href = "http://localhost:8083/book/list";
-                } else {
-                    alert("denglushibai");
-                }
             }
         });
     });

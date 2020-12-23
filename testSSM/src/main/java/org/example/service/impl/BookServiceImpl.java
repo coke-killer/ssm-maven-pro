@@ -49,4 +49,9 @@ public class BookServiceImpl implements BookService {
         return bookMapper.getAllBookListPageBean(pageBean);
     }
 
+    @Override
+    public Integer selectTotal() {
+        return bookMapper.selectTotal();
+    }
+
 }
