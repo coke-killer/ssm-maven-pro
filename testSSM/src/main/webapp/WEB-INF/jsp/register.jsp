@@ -5,7 +5,7 @@
     <title>书籍管理-注册账号</title>
     <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="/webjars/bootstrap/4.5.0/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="/css/my-login.css">
+    <link rel="stylesheet" type="text/css" href="../css/my-login.css">
     <script type="text/javascript" src="/webjars/jquery/3.5.1/jquery.js"></script>
     <script type="text/javascript" src="/webjars/jquery/3.5.1/jquery.min.js"></script>
     <script src="/webjars/bootstrap/4.5.0/js/bootstrap.min.js"></script>

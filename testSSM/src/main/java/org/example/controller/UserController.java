@@ -53,4 +53,10 @@ public class UserController {
     public String updatePassword(User user) {
         return "reset";
     }
+
+    @RequestMapping("/update")
+    public String updatePasswordByUser(User user) {
+        userService.updatePasswordByUser(user);
+        return "redirect:/user/login";
+    }
 }

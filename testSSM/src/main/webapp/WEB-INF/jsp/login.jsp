@@ -9,7 +9,7 @@
     <script type="text/javascript" src="/webjars/jquery/3.5.1/jquery.js"></script>
     <script type="text/javascript" src="/webjars/jquery/3.5.1/jquery.min.js"></script>
     <script src="/webjars/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-    <script src="../js/my-login.js"></script>
+    <script src="/js/my-login.js"></script>
     <script>
         $(function () {
             $(".my-login-validation").submit(function () {
@@ -48,7 +48,7 @@
                 <div class="card fat">
                     <div class="card-body">
                         <h4 class="card-title">登 录</h4>
-                        <form method="post" class="my-login-validation" novalidate="" action="/book//pageBean/1">
+                        <form method="post" class="my-login-validation" novalidate="" action="/book/pageBean/1">
                             <div class="form-group">
                                 <label for="name">姓 名：</label>
                                 <input id="name" type="text" class="form-control" name="name" value="" required

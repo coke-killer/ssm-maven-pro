@@ -19,7 +19,7 @@
 
 
     <insert id="insertBook">
-        insert into t_book(u_id,b_isbn,b_name,b_price,b_publisher,b_pages,b_cover) values(#{id},#{isbn},#{name},#{price},#{publisher},#{pages},#{cover})
+        insert into t_book(u_id,b_isbn,b_name,b_price,b_publisher,b_pages,b_cover) values(#{userId},#{book.isbn},#{book.name},#{book.price},#{book.publisher},#{book.pages},#{book.cover})
     </insert>
     <update id="updateBookAfter">
         update t_book set t_name=#{book.name},t_price=#{book.price},b_cover=#{cover},b_publisher=#{publisher},b_isbn=#{isbn},b_pages=#{pages}

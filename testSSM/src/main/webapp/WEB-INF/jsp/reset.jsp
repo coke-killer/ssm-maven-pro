@@ -6,36 +6,6 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%--<html>--%>
-<%--<head>--%>
-<%--    <title>留言本-用户注册</title>--%>
-<%--</head>--%>
-<%--<body>--%>
-<%--<h1>留言本-用户注册</h1>--%>
-<%--<hr>--%>
-<%--&lt;%&ndash;<form action="/user/doRegister" method="post">&ndash;%&gt;--%>
-<%--&lt;%&ndash;    <label for="name">姓 名：</label><input type="text" name="name" id="name"> <br>&ndash;%&gt;--%>
-<%--&lt;%&ndash;    <label for="password">密 码：</label><input type="password" name="password" id="password"> <br>&ndash;%&gt;--%>
-<%--&lt;%&ndash;    <input type="submit" value="注册"> <input type="reset" value="重置">&ndash;%&gt;--%>
-<%--&lt;%&ndash;</form>&ndash;%&gt;--%>
-<%--&lt;%&ndash;    <form action="${pageContext.request.contextPath }/file/upload.chao"&ndash;%&gt;--%>
-<%--&lt;%&ndash;          method="post" enctype="multipart/form-data">&ndash;%&gt;--%>
-<%--&lt;%&ndash;        选择文件:<input type="file" name="file" width="120px"> <input&ndash;%&gt;--%>
-<%--&lt;%&ndash;            type="submit" value="上传">&ndash;%&gt;--%>
-<%--&lt;%&ndash;    </form>&ndash;%&gt;--%>
-<%--&lt;%&ndash;    <hr>&ndash;%&gt;--%>
-<%--&lt;%&ndash;    <form action="${pageContext.request.contextPath }/file/down.chao"&ndash;%&gt;--%>
-<%--&lt;%&ndash;          method="get">&ndash;%&gt;--%>
-<%--&lt;%&ndash;        <input type="submit" value="下载">&ndash;%&gt;--%>
-<%--&lt;%&ndash;    </form>&ndash;%&gt;--%>
-<%--<!-- 如果提交的内容有需要上传文件信息，需要添加一个参数就是enctype="multipart/form-data" -->--%>
-<%--<form action="/book/insert" method="post" enctype="multipart/form-data">--%>
-<%--    <!-- 上传文件的表单 -->--%>
-<%--    <p>头像：<input type="file" name="file"/></p>--%>
-<%--    <p><input type="submit" value="提交"/></p>--%>
-<%--</form>--%>
-<%--</body>--%>
-<%--</html>--%>
 <html>
 <head>
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -84,12 +54,6 @@
 </section>
 <script src="/webjars/jquery/3.5.1/jquery.min.js"></script>
 <script src="/webjars/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-<%--<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"--%>
-<%--        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"--%>
-<%--        crossorigin="anonymous"></script>--%>
-<%--<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"--%>
-<%--        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"--%>
-<%--        crossorigin="anonymous"></script>--%>
 <script src="js/my-login.js"></script>
 </body>
 </html>

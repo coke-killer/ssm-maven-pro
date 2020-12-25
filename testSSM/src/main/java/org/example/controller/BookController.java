@@ -1,6 +1,7 @@
 package org.example.controller;
 
 import lombok.SneakyThrows;
+import org.apache.ibatis.annotations.Param;
 import org.example.bean.Book;
 import org.example.bean.PageBean;
 import org.example.service.BookService;
@@ -28,9 +29,16 @@ public class BookController {
         return "list";
     }
 
+    @RequestMapping("/test")
+    public String test(Model model) {
+        List<Book> bookList = bookService.getAllBookList();
+        model.addAttribute("bookList", bookList);
+        return "listTest";
+    }
+
     @SneakyThrows
     @RequestMapping("/insert")
-    public String insertBook(MultipartFile file, Book book) {
+    public String insertBook(MultipartFile file, Book book, Integer userId) {
         //判断传来的文件不等于空长度要大于0
         if (file != null && file.getSize() > 0) {
             //我们要得到存放头像像的文件夹路径就需要现在参数里创建application对象
@@ -55,15 +63,15 @@ public class BookController {
             }
             book.setCover(filename);
             //将路径保存到实体中，存入到数据库
-            bookService.insertBook(book);
+            bookService.insertBook(book, userId);
         }
-        return "forward:/book/list";
+        return "forward:/book/pageBean/1";
     }
 
     @RequestMapping("/deleteBook")
     public String deleteBook(Integer id) {
         bookService.deleteBook(id);
-        return "forward:/book/list";
+        return "forward:/book/pageBean/1";
     }
 
     @RequestMapping("/updateBookFirst")
@@ -81,12 +89,12 @@ public class BookController {
     @RequestMapping("/pageBean/{nowPage}")
     public String getPageBean(@PathVariable Integer nowPage, Model model) {
         Integer total = bookService.selectTotal();
-        PageBean pageBean = new PageBean(10, total, nowPage);
+        PageBean pageBean = new PageBean(9, total, nowPage);
         System.out.println(pageBean);
 //        List<Book> list = bookService.getAllBookListPage(pageBean.getBeginCount(),pageBean.getCount());
         List<Book> list = bookService.getAllBookListPageBean(pageBean);
         model.addAttribute("pageBean", pageBean);
         model.addAttribute("list", list);
-        return "list";
+        return "listTest";
     }
 }

@@ -4,6 +4,9 @@
     <insert id="insertUser">
         insert into t_user(u_name,u_password,u_email) values(#{name},#{password},#{email})
     </insert>
+    <update id="updatePasswordByUser">
+        update t_user set u_password=#{password} where u_name=#{name}
+    </update>
     <select id="selectUserByUser" resultType="org.example.bean.User">
         select u_id as id,u_name as name,u_password as password from t_user where u_name=#{name} and u_password=#{password}
     </select>
