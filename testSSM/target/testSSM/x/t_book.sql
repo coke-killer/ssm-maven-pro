@@ -1,0 +1,10 @@
+INSERT INTO `t_book`(`b_id`, `u_id`, `b_isbn`, `b_name`, `b_price`, `b_publisher`, `b_pages`, `b_cover`) VALUES (1, 1, 'asqweqe', '大秦赋', '20', '小于', '80', '1608770338.png');
+INSERT INTO `t_book`(`b_id`, `u_id`, `b_isbn`, `b_name`, `b_price`, `b_publisher`, `b_pages`, `b_cover`) VALUES (2, 1, 'asdad', '葵花宝典', '30', '大于', '90', '1608770338.png');
+INSERT INTO `t_book`(`b_id`, `u_id`, `b_isbn`, `b_name`, `b_price`, `b_publisher`, `b_pages`, `b_cover`) VALUES (3, 1, '9787509799505', '制度之战：战略竞争时代的中美关系', '30.00', '社会科学文献出版社', '70', '1608770338.png');
+INSERT INTO `t_book`(`b_id`, `u_id`, `b_isbn`, `b_name`, `b_price`, `b_publisher`, `b_pages`, `b_cover`) VALUES (4, 1, '1231313', '平凡的世界', '20.00', 'adsad', 'qw', 'qeqeqe');
+INSERT INTO `t_book`(`b_id`, `u_id`, `b_isbn`, `b_name`, `b_price`, `b_publisher`, `b_pages`, `b_cover`) VALUES (5, 1, '1231313', '平凡的世界', '20.00', 'adsad', 'qw', 'qeqeqe');
+INSERT INTO `t_book`(`b_id`, `u_id`, `b_isbn`, `b_name`, `b_price`, `b_publisher`, `b_pages`, `b_cover`) VALUES (6, 1, '232323', '4', '1', '1231313', '平凡的世界', '20.00');
+INSERT INTO `t_book`(`b_id`, `u_id`, `b_isbn`, `b_name`, `b_price`, `b_publisher`, `b_pages`, `b_cover`) VALUES (8, 1, '2', '1', '3', '5', '4', 'aa7d63d7-fc55-483b-bb47-0b93e65f3cd4.jpg');
+INSERT INTO `t_book`(`b_id`, `u_id`, `b_isbn`, `b_name`, `b_price`, `b_publisher`, `b_pages`, `b_cover`) VALUES (9, 1, '2', '2', '2', '2', '2', 'd5c54b3e-3b9f-4fd1-8f27-59cb1eefbad9.jpg');
+INSERT INTO `t_book`(`b_id`, `u_id`, `b_isbn`, `b_name`, `b_price`, `b_publisher`, `b_pages`, `b_cover`) VALUES (10, 1, '2', '2', '2', '2', '2', 'd5c54b3e-3b9f-4fd1-8f27-59cb1eefbad9.jpg');
+INSERT INTO `t_book`(`b_id`, `u_id`, `b_isbn`, `b_name`, `b_price`, `b_publisher`, `b_pages`, `b_cover`) VALUES (11, 1, '2', '2', '2', '2', '2', 'd5c54b3e-3b9f-4fd1-8f27-59cb1eefbad9.jpg');
