@@ -118,9 +118,7 @@
                         <div class="about-image">
                             <img src="/images/8.jpg" alt="about me">
                         </div>
-                        <p>我是一个小型的服务网站 <a rel="nofollow" href="http://www.templatemo.com/page/1">主要应用于图书管理</a> from
-                            <span class="blue">template</span><span class="green">mo</span>
-                            我被创建在2020年12月24日，主要由
+                        <p>这是一个小型的服务网站 被创建在2020年12月24日，主要由
                             <strong>spring,springmvc,mabatis,mysql,html,css,javascript,jquery,ajax,jsp,jstl,</strong>
                             搭建完成，后续会逐渐演变由<strong>springboot,mybatis,dubbo,nacos,vue,react,node.js,redis</strong>
                             搭建的项目
@@ -150,9 +148,9 @@
                                      <c:if test="${xh.count==4}">src="/images/4.jpg"</c:if>
                                      <c:if test="${xh.count==5}">src="/images/5.jpg"</c:if>
                                      <c:if test="${xh.count==6}">src="/images/6.jpg"</c:if>
-                                     <c:if test="${xh.count==7}">src="/images/6.jpg"</c:if>
-                                     <c:if test="${xh.count==8}">src="/images/6.jpg"</c:if>
-                                     <c:if test="${xh.count==9}">src="/images/6.jpg"</c:if>>
+                                     <c:if test="${xh.count==7}">src="/images/9.jpg"</c:if>
+                                     <c:if test="${xh.count==8}">src="/images/10.jpg"</c:if>
+                                     <c:if test="${xh.count==9}">src="/images/11.jpg"</c:if>>
                                 <div class="project-hover">
                                     <div class="inside">
                                         <div style="width: 115px;height: 155px">
@@ -169,7 +167,7 @@
                                                 </c:otherwise>
                                             </c:choose>
                                         </div>
-                                        <h5><a href="#">《${book.name}》</a></h5>
+                                        <h9><a href="#">《${book.name}》</a></h9>
                                         <p>出版社：${book.publisher}</p>
                                         <p>isbn：${book.isbn}</p>
                                         <p>图书价格：￥${book.price}</p>
