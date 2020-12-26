@@ -153,14 +153,15 @@
                                      <c:if test="${xh.count==9}">src="/images/11.jpg"</c:if>>
                                 <div class="project-hover">
                                     <div class="inside">
-                                        <div style="width: 115px;height: 155px">
+                                        <div style="width: 90px;height: 140px">
                                             <img src="/images/${book.cover}" alt="">
                                         </div>
                                         <div style=" float: right">
                                             <c:choose>
                                                 <c:when test="${userLogin.id == book.user.id}">
-                                                    <td><a href="/book/update?id=${book.id}">修改</a>&nbsp;&nbsp;&nbsp; <a
-                                                            href="/book/deleteBook?id=${book.id}">删除</a></td>
+                                                    <td>
+                                                            <%--                                                        <a href="/book/update?id=${book.id}">修改</a>&nbsp;&nbsp;&nbsp;--%>
+                                                        <a href="/book/deleteBook?id=${book.id}">删除</a></td>
                                                 </c:when>
                                                 <c:otherwise>
                                                     <td style="color: red; font-size: 8px;">不可操作</td>
